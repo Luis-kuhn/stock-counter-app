@@ -104,7 +104,7 @@ export function ProductInput({ onAdd, autocompleteItems = [] }: ProductInputProp
 
                     {/* Lista autocomplete */}
                     {filteredItems.length > 0 && (
-                        <ul className="absolute z-10 bg-white border border-gray-300 rounded mt-1 w-full max-h-40 overflow-auto">
+                        <ul className="absolute z-10 bg-white text-black border border-gray-300 rounded mt-1 w-full max-h-40 overflow-auto">
                             {filteredItems.map((item, i) => (
                                 <li
                                     key={item}
@@ -115,7 +115,7 @@ export function ProductInput({ onAdd, autocompleteItems = [] }: ProductInputProp
                                         setAskingQuantity(true);
                                     }}
                                     className={`px-3 py-1 cursor-pointer ${i === selectedSuggestionIndex
-                                        ? "bg-blue-600 text-white"
+                                        ? "bg-blue-600 text-black"
                                         : "hover:bg-gray-200"
                                         }`}
                                 >

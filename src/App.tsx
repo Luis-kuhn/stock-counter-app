@@ -6,6 +6,8 @@ import {
   saveTabsToStorage,
 } from "./utils/storage";
 import type { Tab } from "./utils/storage";
+
+
 // If you need to use ProductItem as a type in the future, import it like this:
 // import type { ProductItem } from "./utils/storage";
 
@@ -46,10 +48,11 @@ function App() {
   const [masterItems, setMasterItems] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("/data/items.json")
+    fetch("../public/data/items.json")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data.items)) {
+          console.log("Carregando items.json:", data.items);
           setMasterItems(data.items);
         } else {
           console.error("Formato inválido em items.json");
@@ -219,6 +222,7 @@ function App() {
         onAdd={addProduct}
         autocompleteItems={Array.from(
           new Set([
+
             ...masterItems,
             ...(currentTab?.wells.flatMap((w) => w.products.map((p) => p.name)) || [])
           ])
