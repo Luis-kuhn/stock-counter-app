@@ -48,7 +48,7 @@ function App() {
   const [masterItems, setMasterItems] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("../public/data/items.json")
+    fetch("/data/items.json")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data.items)) {
